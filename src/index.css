@@ -4,6 +4,7 @@ html, body, :global(#root) {
 }
 
 :global(.header.ant-layout-header){
-  background: #31C3A6;
-  color: #fff;
+  background: saddlebrown;
+  color: salmon;
 }
+

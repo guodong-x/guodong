@@ -1,15 +1,20 @@
-import IndexPage from "../view/indexPage"
+import React, { Component } from 'react'
+import {Route,Switch,Redirect} from "dva/router"
 
-export default{
-    routes:[{
-        path:"/main",
-        component:IndexPage,
-        children:[
-            {
-                path:"/main/addgov",
-                component:()=><div>新增机构页面</div>
-            }
-
-        ]
-    }]
+export default props=>{
+    return<Switch>{
+         props.routes.map((item,index)=>{
+             return item.path&&<Route key={index} path={item.path} render={(props)=>{
+                 if(item.redirect){
+                     return <Redirect exact from={item.path} to={item.redirect}/>
+                 }
+                 if(item.children){
+                     return <item.component {...props} routes={item.children} />
+                 }else{
+                     return <item.component {...props}/>
+                 }
+             }
+             }/>
+         })
+    }</Switch>
 }

@@ -1,17 +1,15 @@
-import {createStore} from "redux"
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-let reducer=(state,active)=>{
-    state=JSON.parse(JSON.stringify(state));
+Vue.use(Vuex)
 
-    switch(active.type){
-
-
-    }
-    return state;
-}
-
-let initialState={
-
-}
-
-export default createStore(reducer,initialState);
+export default new Vuex.Store({
+  state: {
+  },
+  mutations: {
+  },
+  actions: {
+  },
+  modules: {
+  }
+})
